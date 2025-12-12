@@ -1,0 +1,120 @@
+/* ==UserStyle==
+@name         Google Glass
+@version      20251212.14.25
+@namespace    https://github.com/lorenzolanglois
+@description  Made to be used with a transparent browser, tested on google.com, might not work properly on other Google variants (google.fr, google.de etc)
+@author       Lorenzo Langlois
+@homepageURL  https://github.com/lorenzolanglois/Glass-Themes
+@supportURL   https://github.com/lorenzolanglois/Glass-Themes/issues
+@updateURL    https://github.com/lorenzolanglois/Glass-Themes/google-glass.user.css
+@license      MIT
+
+@preprocessor stylus
+@var select theme "Theme" ["basic:Basic", "high:High Contrast", "higher:Higher Contrast"]
+@var checkbox force-dark "Dark logo variant" 0
+==/UserStyle== */
+@-moz-document regexp("https?:\\/\\/(?:www\\.)?google\\.[a-z]{2,3}(?:\\.[a-z]{2})?(?:\\/[^\\s]*)?") {
+    :root {
+        if theme == basic {
+            --primary-color: rgba(0, 0, 0, .3);
+            --secondary-color: rgba(0, 0, 0, .4);
+            --tertiary-color: rgba(255, 255, 255, .8);
+            --transparent: rgba(0, 0, 0, 0);
+        } else if theme == high {
+            --primary-color: rgba(0, 0, 0, .4);
+            --secondary-color: rgba(0, 0, 0, .6);
+            --tertiary-color: rgba(255, 255, 255, 1);
+            --transparent: rgba(0, 0, 0, .4);
+        } else if theme == higher {
+            --primary-color: rgba(0, 0, 0, .5);
+            --secondary-color: rgba(0, 0, 0, .7);
+            --tertiary-color: rgba(255, 255, 255, 1);
+            --transparent: rgba(0, 0, 0, .7);
+        }
+        if force-dark {
+            --logo-dark: 1;
+        } else {
+            --logo-dark: 0;
+        }
+        --xhUGwc: var(--primary-color);
+        --cIehld: var(--primary-color);
+        --XKMDxc: var(--primary-color);
+        --YLNNHc: var(--tertiary-color);
+        --gS5jXb: var(--transparent);
+        --ONhrGd: var(--transparent);
+    }
+
+    /* Make elements transparent */
+    body, br, .GCSyeb, .PUxBg {
+        background: var(--transparent);
+    }
+
+    div[role=contentinfo], div.RNNXgb, div.S8ee5, div#fbar, div.vIifob, .Ea5p3b, .LQCGqc, .ibX8Cd, .efwPxe {
+        background: var(--primary-color) !important;
+    }
+
+    div.aajZCb {
+        background: var(--secondary-color) !important;
+        backdrop-filter: blur(10px);
+    }
+
+    .efwPxe:hover, .b53XLe .Xx7Mif {
+        background: var(--secondary-color) !important;
+    }
+
+    .PMUcxf {
+        color: var(--tertiary-color);
+    }
+
+    /* Bottom image result */
+    .UafVBb {
+        background-color: var(--primary-color) !important;
+        border-top: 0;
+    }
+
+    /* Search and lucky buttons */
+    input[name=btnK], input[name=btnI] {
+        background: var(--primary-color) !important;
+    }
+
+    /* Replace Google logo */
+    img#hplogo, .logo a img {
+        opacity: 0;
+    }
+
+    div:has(> picture > img#hplogo), .logo {
+        background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNzIiIGhlaWdodD0iOTIiPjxwYXRoIGZpbGw9IndoaXRlIiBmaWxsLW9wYWNpdHk9Ii40IiBkPSJNMTE1Ljc1IDQ3LjE4YzAgMTIuNzctOS45OSAyMi4xOC0yMi4yNSAyMi4xOHMtMjIuMjUtOS40MS0yMi4yNS0yMi4xOEM3MS4yNSAzNC4zMiA4MS4yNCAyNSA5My41IDI1czIyLjI1IDkuMzIgMjIuMjUgMjIuMTh6bS05Ljc0IDBjMC03Ljk4LTUuNzktMTMuNDQtMTIuNTEtMTMuNDRTODAuOTkgMzkuMiA4MC45OSA0Ny4xOGMwIDcuOSA1Ljc5IDEzLjQ0IDEyLjUxIDEzLjQ0czEyLjUxLTUuNTUgMTIuNTEtMTMuNDR6TTE2My43NSA0Ny4xOGMwIDEyLjc3LTkuOTkgMjIuMTgtMjIuMjUgMjIuMThzLTIyLjI1LTkuNDEtMjIuMjUtMjIuMThjMC0xMi44NSA5Ljk5LTIyLjE4IDIyLjI1LTIyLjE4czIyLjI1IDkuMzIgMjIuMjUgMjIuMTh6bS05Ljc0IDBjMC03Ljk4LTUuNzktMTMuNDQtMTIuNTEtMTMuNDRzLTEyLjUxIDUuNDYtMTIuNTEgMTMuNDRjMCA3LjkgNS43OSAxMy40NCAxMi41MSAxMy40NHMxMi41MS01LjU1IDEyLjUxLTEzLjQ0ek0yMDkuNzUgMjYuMzR2MzkuODJjMCAxNi4zOC05LjY2IDIzLjA3LTIxLjA4IDIzLjA3LTEwLjc1IDAtMTcuMjItNy4xOS0xOS42Ni0xMy4wN2w4LjQ4LTMuNTNjMS41MSAzLjYxIDUuMjEgNy44NyAxMS4xNyA3Ljg3IDcuMzEgMCAxMS44NC00LjUxIDExLjg0LTEzdi0zLjE5aC0uMzRjLTIuMTggMi42OS02LjM4IDUuMDQtMTEuNjggNS4wNC0xMS4wOSAwLTIxLjI1LTkuNjYtMjEuMjUtMjIuMDkgMC0xMi41MiAxMC4xNi0yMi4yNiAyMS4yNS0yMi4yNiA1LjI5IDAgOS40OSAyLjM1IDExLjY4IDQuOTZoLjM0di0zLjYxaDkuMjV6bS04LjU2IDIwLjkyYzAtNy44MS01LjIxLTEzLjUyLTExLjg0LTEzLjUyLTYuNzIgMC0xMi4zNSA1LjcxLTEyLjM1IDEzLjUyIDAgNy43MyA1LjYzIDEzLjM2IDEyLjM1IDEzLjM2IDYuNjMgMCAxMS44NC01LjYzIDExLjg0LTEzLjM2ek0yMjUgM3Y2NWgtOS41VjNoOS41ek0yNjIuMDIgNTQuNDhsNy41NiA1LjA0YTIyLjA4IDIyLjA4IDAgMCAxLTE4LjQ4IDkuODNjLTEyLjYgMC0yMi4wMS05Ljc0LTIyLjAxLTIyLjE4IDAtMTMuMTkgOS40OS0yMi4xOCAyMC45Mi0yMi4xOCAxMS41MSAwIDE3LjE0IDkuMTYgMTguOTggMTQuMTFsMS4wMSAyLjUyLTI5LjY1IDEyLjI4YzIuMjcgNC40NSA1LjggNi43MiAxMC43NSA2LjcyIDQuOTYgMCA4LjQtMi40NCAxMC45Mi02LjE0em0tMjMuMjctNy45OCAxOS44Mi04LjIzYy0xLjA5LTIuNzctNC4zNy00LjctOC4yMy00LjctNC45NSAwLTExLjg0IDQuMzctMTEuNTkgMTIuOTN6TTM1LjI5IDQxLjQxVjMySDY3Yy4zMSAxLjY0LjQ3IDMuNTguNDcgNS42OCAwIDcuMDYtMS45MyAxNS43OS04LjE1IDIyLjAxLTYuMDUgNi4zLTEzLjc4IDkuNjYtMjQuMDIgOS42NkMxNi4zMiA2OS4zNS4zNiA1My44OS4zNiAzNC45MS4zNiAxNS45MyAxNi4zMi40NyAzNS4zLjQ3YzEwLjUgMCAxNy45OCA0LjEyIDIzLjYgOS40OWwtNi42NCA2LjY0YTIzLjk5IDIzLjk5IDAgMCAwLTE2Ljk3LTYuNzJjLTEzLjg2IDAtMjQuNyAxMS4xNy0yNC43IDI1LjAzIDAgMTMuODYgMTAuODQgMjUuMDMgMjQuNyAyNS4wMyA4Ljk5IDAgMTQuMTEtMy42MSAxNy4zOS02Ljg5IDIuNjYtMi42NiA0LjQxLTYuNDYgNS4xLTExLjY1bC0yMi40OS4wMXoiLz48L3N2Zz4=') no-repeat center / 75%;
+        filter: invert(var(--logo-dark));
+    }
+
+    /* */
+    .NQyKp.h4wEae {
+        background: var(--transparent);
+    }
+
+    .REySof, .UivI7b {
+        background: var(--primary-color) !important;
+    }
+
+    /* Connection */
+    a.gb_A {
+        background: var(--primary-color) !important;
+        color: white !important;
+    }
+
+    /* Removing bar at the top of search result */
+    .zLSRge {
+        border : 0;
+    }
+
+    /* Search results */
+    .Ww4FFb, .Ea5p3b, .LQCGqc {
+        border-radius: 10px;
+        padding: 10px;
+    }
+
+    /* Search bar */
+    div.RNNXgb {
+        background: var(--primary-color);
+    }
+}
