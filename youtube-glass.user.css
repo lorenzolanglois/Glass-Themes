@@ -1,0 +1,75 @@
+/* ==UserStyle==
+@name         Youtube Glass
+@version      20251213.14.25
+@namespace    https://github.com/lorenzolanglois
+@description  Made to be used with a transparent browser
+@author       Lorenzo Langlois
+@homepageURL  https://github.com/lorenzolanglois/Glass-Themes
+@supportURL   https://github.com/lorenzolanglois/Glass-Themes/issues
+@updateURL    https://github.com/lorenzolanglois/Glass-Themes/youtube-glass.user.css
+@license      MIT
+
+@preprocessor stylus
+@var select theme "Theme" ["basic:Basic", "high:High Contrast", "higher:Higher Contrast"]
+==/UserStyle== */
+@-moz-document url-prefix("https://www.youtube.com/") {
+    :root {
+        if theme == basic {
+            --primary-color: rgba(0, 0, 0, .3);
+            --secondary-color: rgba(0, 0, 0, .6);
+            --tertiary-color: rgba(255, 255, 255, .8);
+            --transparent: rgba(0, 0, 0, 0);
+        } else if theme == high {
+            --primary-color: rgba(0, 0, 0, .4);
+            --secondary-color: rgba(0, 0, 0, .7);
+            --tertiary-color: rgba(255, 255, 255, 1);
+            --transparent: rgba(0, 0, 0, .4);
+        } else if theme == higher {
+            --primary-color: rgba(0, 0, 0, .5);
+            --secondary-color: rgba(0, 0, 0, .8);
+            --tertiary-color: rgba(255, 255, 255, 1);
+            --transparent: rgba(0, 0, 0, .7);
+        }
+        /* Make background transparent */
+        --yt-frosted-glass-desktop: var(--transparent) !important;
+        
+        /* Changing sidebar color */
+        --yt-spec-base-background: var(--primary-color) !important;
+        
+        /* Changing notifications color */
+        --yt-spec-menu-background: var(--secondary-color) !important;
+        
+        /* Changing channel about popup color */
+        --paper-dialog-background-color: var(--secondary-color) !important;
+        --yt-spec-raised-background: transparent !important;
+    }
+    
+    /* Make background transparent */
+    html[dark] {
+        background-color: var(--transparent) !important;
+    }
+    
+    ytd-app {
+        background-color: var(--transparent) !important;
+    }
+    
+    /* Changing YouTube logo color from red to gray/whitish */
+    span.yt-icon div svg > g:nth-child(1) > path:nth-child(1) {
+        fill: rgba(255, 255, 255, .4);;
+    }
+    
+    /* Changing YouTube search bar */
+    div.ytSearchboxComponentInputBox {
+        background-color: var(--primary-color);
+    }
+    
+    /* Adding blur to sidebar and channel about popup */
+    #guide-content, tp-yt-paper-dialog {
+        backdrop-filter: blur(10px);
+    }
+    
+    /* Hiding a useless div not visible normally */
+    div#chips-wrapper {
+        background-color: transparent !important;
+    }
+}
