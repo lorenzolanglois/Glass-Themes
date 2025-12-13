@@ -1,0 +1,79 @@
+/* ==UserStyle==
+@name         ChatGPT Glass
+@version      20251213.14.25
+@namespace    https://github.com/lorenzolanglois
+@description  Made to be used with a transparent browser
+@author       Lorenzo Langlois
+@homepageURL  https://github.com/lorenzolanglois/Glass-Themes
+@supportURL   https://github.com/lorenzolanglois/Glass-Themes/issues
+@updateURL    https://github.com/lorenzolanglois/Glass-Themes/chatgpt-glass.user.css
+@license      MIT
+
+@preprocessor stylus
+@var select theme "Theme" ["basic:Basic", "high:High Contrast", "higher:Higher Contrast"]
+==/UserStyle== */
+@-moz-document url-prefix("https://chatgpt.com") {
+    :root {
+        if theme == basic {
+            --primary-color: rgba(0, 0, 0, .3);
+            --secondary-color: rgba(0, 0, 0, .4);
+            --tertiary-color: rgba(255, 255, 255, .8);
+            --transparent: rgba(0, 0, 0, 0);
+        } else if theme == high {
+            --primary-color: rgba(0, 0, 0, .4);
+            --secondary-color: rgba(0, 0, 0, .5);
+            --tertiary-color: rgba(255, 255, 255, 1);
+            --transparent: rgba(0, 0, 0, .4);
+        } else if theme == higher {
+            --primary-color: rgba(0, 0, 0, .5);
+            --secondary-color: rgba(0, 0, 0, .7);
+            --tertiary-color: rgba(255, 255, 255, 1);
+            --transparent: rgba(0, 0, 0, .7);
+        }
+        --button-highlight: rgba(255, 255, 255, 0.1);
+
+        /* Making background transparent */
+        --bg-primary: var(--transparent);
+        
+        /* Changing header color */
+        --main-surface-primary: var(--primary-color);
+        
+        /* Changing chat bubble color */
+        --theme-user-msg-bg: var(--secondary-color);
+        
+        /* Changing voice button color */
+        --theme-secondary-btn-bg: var(--button-highlight);
+        
+        /* Changing button hover color */
+        --main-surface-secondary: var(--secondary-color);
+    }
+    
+    /* Changing search bar color */
+    .bg-token-bg-primary {
+        background-color: var(--secondary-color);
+    }
+    
+    /* Changing button color */
+    .btn-primary, .bg-token-bg-elevated-secondary {
+        background-color: var(--button-highlight);
+        color: var(--tertiary-color);
+    }
+    
+    /* Adding background to agent chat bubble */
+    div.text-message.relative[data-message-model-slug] {
+        border-radius: 18px;
+        padding: 10px;
+        background-color: var(--secondary-color);
+    }
+    
+    /* Changing popup background */
+    .popover.bg-token-main-surface-primary {
+        background-color: var(--secondary-color);
+        backdrop-filter: blur(10px);
+    }
+    
+    /* Changing code background color */
+    .bg-token-sidebar-surface-primary {
+        background-color: var(--secondary-color);
+    }
+}

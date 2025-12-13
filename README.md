@@ -17,3 +17,8 @@ Every theme has a "Basic", "High Contrast" and "Higher Contrast" version availab
 <p align="center">
     <a href="https://github.com/lorenzolanglois/Glass-Themes/raw/refs/heads/main/youtube-glass.user.css"><img alt="YouTube with glass theme" src="preview/youtube-glass/youtube-glass.png" width="580"></a>
 </p>
+
+## ChatGPT
+<p align="center">
+    <a href="https://github.com/lorenzolanglois/Glass-Themes/raw/refs/heads/main/chatgpt-glass.user.css"><img alt="ChatGPT with glass theme" src="preview/chatgpt-glass/chatgpt-glass.png" width="580"></a>
+</p>
