@@ -6,11 +6,12 @@
 @author       Lorenzo Langlois
 @homepageURL  https://github.com/lorenzolanglois/Glass-Themes
 @supportURL   https://github.com/lorenzolanglois/Glass-Themes/issues
-@updateURL    https://github.com/lorenzolanglois/Glass-Themes/youtube-glass.user.css
+@updateURL    https://github.com/lorenzolanglois/Glass-Themes/raw/refs/heads/main/youtube-glass.user.css
 @license      MIT
 
 @preprocessor stylus
 @var select theme "Theme" ["basic:Basic", "high:High Contrast", "higher:Higher Contrast"]
+@var checkbox makeThumbnailsGlassy "Make thumbnails glassy" 0
 ==/UserStyle== */
 @-moz-document url-prefix("https://www.youtube.com/") {
     :root {
@@ -71,5 +72,12 @@
     /* Hiding a useless div not visible normally */
     div#chips-wrapper {
         background-color: transparent !important;
+    }
+    
+    /* Making thumbnail optionally glassy */
+    if makeThumbnailsGlassy {
+        img.ytCoreImageHost {
+            filter: opacity(75%) grayscale(50%);
+        }
     }
 }
