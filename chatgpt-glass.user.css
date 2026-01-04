@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name         ChatGPT Glass
-@version      20251217.14.25
+@version      20260104.14.25
 @namespace    https://github.com/lorenzolanglois
 @description  Made to be used with a transparent browser
 @author       Lorenzo Langlois
@@ -46,6 +46,9 @@
         
         /* Changing button hover color */
         --main-surface-secondary: var(--secondary-color);
+        
+        /* Changing side bar background color */
+        --bg-elevated-secondary: var(--secondary-color);
     }
     
     /* Changing search bar color */
@@ -66,8 +69,8 @@
         background-color: var(--secondary-color);
     }
     
-    /* Changing popup background */
-    .popover.bg-token-main-surface-primary {
+    /* Changing popup and sidebar background */
+    .popover.bg-token-main-surface-primary, div > div[data-testid="accounts-profile-button"] {
         background-color: var(--secondary-color);
         backdrop-filter: blur(10px);
     }
